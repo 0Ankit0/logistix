@@ -12,13 +12,13 @@ The project is designed so that most customization starts with configuration and
 - Database-backed runtime settings overrides for safe operational config.
 - Centralized operational config for cookies, hosts, rate limits, logging, observability, storage, Celery, and websocket behavior.
 - Web and mobile clients that adapt to enabled modules and configured providers.
-- A full `docs/` system modeled on the Project-Ideas documentation structure.
+- A consolidated `DOCS.md` reference that combines the template docs and logistics tracking system design docs.
 
 ## Quick Start
 
-1. Review [docs/README.md](/Users/ankit/Projects/Python/fastapi/fastapi_template/docs/README.md).
+1. Review [DOCS.md](/Users/ankit/Projects/Python/fastapi/logistix/DOCS.md).
 2. Run `make setup`.
-3. Read [project-orientation.md](/Users/ankit/Projects/Python/fastapi/fastapi_template/docs/onboarding/project-orientation.md), [configuration-management.md](/Users/ankit/Projects/Python/fastapi/fastapi_template/docs/onboarding/configuration-management.md), [template-finalization-checklist.md](/Users/ankit/Projects/Python/fastapi/fastapi_template/docs/onboarding/template-finalization-checklist.md), and [TEMPLATE_RELEASE_CHECKLIST.md](/Users/ankit/Projects/Python/fastapi/fastapi_template/TEMPLATE_RELEASE_CHECKLIST.md).
+3. Read the onboarding and implementation sections in [DOCS.md](/Users/ankit/Projects/Python/fastapi/logistix/DOCS.md), then review [TEMPLATE_RELEASE_CHECKLIST.md](/Users/ankit/Projects/Python/fastapi/logistix/TEMPLATE_RELEASE_CHECKLIST.md).
 4. Start local dependencies with `make infra-up`.
 5. Run migrations with `make backend-migrate`.
 6. Start the apps with `make backend-dev`, `make frontend-dev`, and `make mobile-dev`.
