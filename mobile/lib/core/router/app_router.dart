@@ -12,6 +12,7 @@ import '../../features/payments/presentation/pages/payments_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
 import '../../features/profile/presentation/pages/tokens_page.dart';
 import '../../features/settings/presentation/pages/settings_page.dart';
+import '../../features/logistics/presentation/pages/driver_assignments_page.dart';
 import '../constants/app_constants.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -83,6 +84,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   GoRoute(
                     path: 'payments',
                     builder: (context, state) => const PaymentsPage(),
+                  ),
+                  GoRoute(
+                    path: 'driver-assignments',
+                    builder: (context, state) => const DriverAssignmentsPage(),
                   ),
                 ],
               ),

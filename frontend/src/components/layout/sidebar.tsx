@@ -12,6 +12,12 @@ import {
   Key,
   ArrowRight,
   Map,
+  Truck,
+  Route,
+  AlertTriangle,
+  ScanSearch,
+  Building,
+  TruckIcon,
 } from 'lucide-react';
 import { OrgSwitcher } from './org-switcher';
 import { useSystemCapabilities } from '@/hooks/use-system';
@@ -21,6 +27,12 @@ const mainNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
   { name: 'Profile', href: '/profile', icon: User },
   { name: 'Tenants', href: '/tenants', icon: Building2, feature: 'multitenancy' },
+  { name: 'Shipments', href: '/shipments', icon: Truck, feature: 'logistics' },
+  { name: 'Dispatch', href: '/dispatch', icon: Route, feature: 'logistics' },
+  { name: 'Exceptions', href: '/exceptions', icon: AlertTriangle, feature: 'logistics' },
+  { name: 'Tracking Console', href: '/tracking', icon: ScanSearch, feature: 'logistics' },
+  { name: 'Hubs & Routes', href: '/hubs-routes', icon: Building, feature: 'logistics' },
+  { name: 'Fleet & Drivers', href: '/fleet', icon: TruckIcon, feature: 'logistics' },
   { name: 'Payments', href: '/finances', icon: CreditCard, feature: 'finance' },
   { name: 'Notifications', href: '/notifications', icon: Bell, feature: 'notifications' },
   { name: 'Maps', href: '/maps', icon: Map, feature: 'maps' },

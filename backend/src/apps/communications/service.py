@@ -62,6 +62,7 @@ class CommunicationsService:
                 "analytics": settings.FEATURE_ANALYTICS,
                 "social_auth": settings.FEATURE_SOCIAL_AUTH,
                 "maps": settings.FEATURE_MAPS,
+                "logistics": settings.FEATURE_LOGISTICS,
             },
             active_providers={
                 "email": settings.EMAIL_PROVIDER if settings.EMAIL_ENABLED else None,
@@ -76,6 +77,23 @@ class CommunicationsService:
                 "sms": settings.SMS_FALLBACK_PROVIDERS,
                 "maps": [],
             },
+            logistics_workspaces=[
+                "operator_dashboard",
+                "shipment_management",
+                "tracking_console",
+                "dispatch_board",
+                "hubs_routes",
+                "fleet_drivers",
+                "exceptions_queue",
+                "customer_tracking",
+            ] if settings.FEATURE_LOGISTICS else [],
+            logistics_actions={
+                "operations_admin": ["manage_hubs", "manage_routes", "manage_fleet", "resolve_exceptions"],
+                "dispatcher": ["assign_driver", "move_status", "resolve_exceptions"],
+                "driver": ["submit_checkpoint", "report_exception", "submit_pod"],
+                "customer_support": ["search_shipment", "inspect_timeline", "trigger_notification"],
+                "customer_viewer": ["view_tracking"],
+            } if settings.FEATURE_LOGISTICS else {},
         )
 
     def get_provider_statuses(self) -> list[ProviderStatus]:
