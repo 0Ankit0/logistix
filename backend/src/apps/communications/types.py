@@ -44,3 +44,5 @@ class CapabilitySummary(BaseModel):
     modules: dict[str, bool]
     active_providers: dict[str, str | None]
     fallback_providers: dict[str, list[str]]
+    logistics_workspaces: list[str] = Field(default_factory=list)
+    logistics_actions: dict[str, list[str]] = Field(default_factory=dict)

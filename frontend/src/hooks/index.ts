@@ -103,3 +103,21 @@ export {
   useSecurityIncident,
   useUpdateSecurityIncident,
 } from './use-observability';
+
+export {
+  useShipments,
+  useCreateShipment,
+  useTransitionShipmentStatus,
+  useDispatchAssignments,
+  useCreateAssignment,
+  useExceptions,
+  useResolveException,
+  useHubs,
+  useRoutes,
+  useVehicles,
+  useDrivers,
+  useCreateHub,
+  useCreateRoute,
+  useCreateVehicle,
+  useCreateDriver,
+} from './use-logistics';

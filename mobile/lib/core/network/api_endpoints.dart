@@ -48,4 +48,10 @@ class ApiEndpoints {
   static const String paymentProviders = '/payments/providers/';
   static const String paymentInitiate = '/payments/initiate/';
   static const String paymentVerify = '/payments/verify/';
+
+  // Logistics
+  static const String dispatchAssignments = '/dispatch/assignments';
+  static const String dispatchExceptions = '/dispatch/exceptions';
+  static const String dispatchProofOfDelivery = '/dispatch/proof-of-delivery';
+  static const String trackingCheckpoints = '/tracking/checkpoints';
 }

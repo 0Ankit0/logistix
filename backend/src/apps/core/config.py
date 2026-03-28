@@ -65,6 +65,7 @@ PUBLIC_GENERAL_SETTING_KEYS = frozenset(
         "FEATURE_ANALYTICS",
         "FEATURE_SOCIAL_AUTH",
         "FEATURE_MAPS",
+        "FEATURE_LOGISTICS",
         "EMAIL_ENABLED",
         "EMAIL_PROVIDER",
         "PUSH_ENABLED",
@@ -171,6 +172,7 @@ class Settings(BaseSettings):
     FEATURE_ANALYTICS: bool = True
     FEATURE_SOCIAL_AUTH: bool = True
     FEATURE_MAPS: bool = False
+    FEATURE_LOGISTICS: bool = True
 
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
@@ -328,6 +330,7 @@ class Settings(BaseSettings):
         "FEATURE_ANALYTICS",
         "FEATURE_SOCIAL_AUTH",
         "FEATURE_MAPS",
+        "FEATURE_LOGISTICS",
         "EMAIL_ENABLED",
         "PUSH_ENABLED",
         "SMS_ENABLED",
