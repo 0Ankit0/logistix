@@ -26,18 +26,13 @@ export function startOAuthLogin(provider: OAuthProvider) {
 }
 
 // ---------------------------------------------------------------------------
-// Server-side: fetch enabled providers
-// Called from Server Component pages — never from client components directly.
-// Next.js caches this fetch; providers only change when the backend restarts.
+// Fetch enabled providers from backend
 // ---------------------------------------------------------------------------
 
 /** Returns the list of providers currently enabled on the backend. */
 export async function getEnabledProviders(): Promise<OAuthProvider[]> {
   try {
-    const res = await fetch(`${BACKEND_URL}/auth/social/providers/`, {
-      // Revalidate every hour — providers are static config, not runtime data.
-      next: { revalidate: 3600 },
-    });
+    const res = await fetch(`${BACKEND_URL}/auth/social/providers/`);
     if (!res.ok) return [];
     const data = (await res.json()) as { providers: string[] };
     return (data.providers ?? []) as OAuthProvider[];
