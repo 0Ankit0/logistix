@@ -27,7 +27,7 @@ from src.apps.analytics.api import router as analytics_router
 from src.apps.analytics.middleware import AnalyticsMiddleware
 from src.apps.system.api import router as system_router
 from src.apps.observability.api import router as observability_router
-from src.apps.logistics import logistics_router
+from src.apps.logistics.api import logistics_router
 from src.apps.observability.service import prune_old_log_entries
 from src.apps.core.storage import storage_uses_local_filesystem
 

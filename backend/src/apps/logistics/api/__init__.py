@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from src.apps.logistics.api.v1 import router as v1_router
+from .v1 import router as v1_router
 
 # Primary planned API surface: /api/v1/<resource-family>
 logistics_router = APIRouter()
