@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { use } from 'react';
+import { useParams } from 'react-router-dom';
 import Link from 'next/link';
 import {
   useRole,
@@ -22,12 +22,8 @@ import {
 } from 'lucide-react';
 import type { Permission } from '@/types';
 
-export default function RoleManagePage({
-  params,
-}: {
-  params: Promise<{ roleId: string }>;
-}) {
-  const { roleId } = use(params);
+export default function RoleManagePage() {
+  const { roleId = '' } = useParams<{ roleId: string }>();
 
   const { data: role, isLoading: roleLoading } = useRole(roleId);
   const { data: rolePerms, isLoading: rolePermsLoading } = useRolePermissions(roleId);
