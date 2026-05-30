@@ -41,6 +41,18 @@ enum PaymentStatus {
   }
 }
 
+int _asInt(dynamic value, {int fallback = 0}) {
+  if (value is int) return value;
+  if (value is num) return value.toInt();
+  if (value is String) return int.tryParse(value) ?? fallback;
+  return fallback;
+}
+
+String _asString(dynamic value, {String fallback = ''}) {
+  if (value == null) return fallback;
+  return value.toString();
+}
+
 class InitiatePaymentRequest {
   final PaymentProvider provider;
   final int amount;
@@ -81,7 +93,7 @@ class InitiatePaymentRequest {
 }
 
 class InitiatePaymentResponse {
-  final int transactionId;
+  final String transactionId;
   final PaymentProvider provider;
   final PaymentStatus status;
   final String? paymentUrl;
@@ -99,7 +111,7 @@ class InitiatePaymentResponse {
 
   factory InitiatePaymentResponse.fromJson(Map<String, dynamic> json) {
     return InitiatePaymentResponse(
-      transactionId: json['transaction_id'] as int,
+      transactionId: _asString(json['transaction_id']),
       provider: PaymentProvider.fromString(json['provider'] as String? ?? 'khalti'),
       status: PaymentStatus.fromString(json['status'] as String? ?? 'pending'),
       paymentUrl: json['payment_url'] as String?,
@@ -115,7 +127,7 @@ class VerifyPaymentRequest {
   final String? oid;
   final String? refId;
   final String? data;
-  final int? transactionId;
+  final String? transactionId;
 
   const VerifyPaymentRequest({
     required this.provider,
@@ -138,7 +150,7 @@ class VerifyPaymentRequest {
 }
 
 class VerifyPaymentResponse {
-  final int transactionId;
+  final String transactionId;
   final PaymentProvider provider;
   final PaymentStatus status;
   final int? amount;
@@ -156,10 +168,10 @@ class VerifyPaymentResponse {
 
   factory VerifyPaymentResponse.fromJson(Map<String, dynamic> json) {
     return VerifyPaymentResponse(
-      transactionId: json['transaction_id'] as int,
+      transactionId: _asString(json['transaction_id']),
       provider: PaymentProvider.fromString(json['provider'] as String? ?? 'khalti'),
       status: PaymentStatus.fromString(json['status'] as String? ?? 'pending'),
-      amount: json['amount'] as int?,
+      amount: _asInt(json['amount']),
       providerTransactionId: json['provider_transaction_id'] as String?,
       extra: json['extra'] as Map<String, dynamic>?,
     );
@@ -167,7 +179,7 @@ class VerifyPaymentResponse {
 }
 
 class PaymentTransaction {
-  final int id;
+  final String id;
   final PaymentProvider provider;
   final PaymentStatus status;
   final int amount;
@@ -197,10 +209,10 @@ class PaymentTransaction {
 
   factory PaymentTransaction.fromJson(Map<String, dynamic> json) {
     return PaymentTransaction(
-      id: json['id'] as int,
+      id: _asString(json['id']),
       provider: PaymentProvider.fromString(json['provider'] as String? ?? 'khalti'),
       status: PaymentStatus.fromString(json['status'] as String? ?? 'pending'),
-      amount: json['amount'] as int? ?? 0,
+      amount: _asInt(json['amount']),
       currency: json['currency'] as String? ?? 'NPR',
       purchaseOrderId: json['purchase_order_id'] as String? ?? '',
       purchaseOrderName: json['purchase_order_name'] as String? ?? '',
